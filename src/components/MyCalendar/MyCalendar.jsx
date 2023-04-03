@@ -1,40 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
 import Calendar from "react-calendar";
-import { MyTimePicker } from "./MyTimePicker";
+import { useCalendar } from "./MyCalendarProvider";
 
 import "react-calendar/dist/Calendar.css";
 import "./MyCalendar.css";
 
 export const MyCalendar = () => {
-    const [date, setDate] = useState(new Date());
+    const { calendarState, setCalendarState } = useCalendar();
 
-    // if (date.length > 0)
-    // console.log(date[0], date[1], date[0].toDateString() === date[1].toDateString();
+    const handleCalendarDate = (value, e) => {
+        setCalendarState({
+            type: "set-range",
+            payload: value,
+        });
+    };
+
+    const handleStartTime = (e) => {
+        setCalendarState({
+            type: "set-start-time",
+            payload: e.target.value,
+        });
+    };
+    const handleEndTime = (e) => {
+        setCalendarState({
+            type: "set-end-time",
+            payload: e.target.value,
+        });
+    };
+
     return (
         <section className="my-calendar">
-            <div>Seleccione la fecha inicial y final del evento</div>
             <div className="calendar-container">
-                <Calendar onChange={setDate} value={date} selectRange={true} />
+                <Calendar onChange={handleCalendarDate} value={calendarState.date} selectRange={true} />
             </div>
             <section className="event-time">
                 <div className="event-time--start">
                     <span>Hora Inicial:</span>
-                    <MyTimePicker />
+                    <input
+                        className="event-time__input"
+                        type="time"
+                        value={calendarState.startTime}
+                        onChange={handleStartTime}
+                    />
                 </div>
                 <div className="event-time--end">
                     <span>Hora Final:</span>
-                    <MyTimePicker />
+                    <input
+                        className="event-time__input"
+                        type="time"
+                        value={calendarState.endTime}
+                        onChange={handleEndTime}
+                    />
                 </div>
-
-                {/* <div className="event-time--end">Hora Final:</div> */}
             </section>
-            {date.length > 0 && (
-                <p className="text-center" style={{ margin: "1rem" }}>
-                    <span className="bold">Inicio:</span> {date[0].toDateString()}
-                    &nbsp;|&nbsp;
-                    <span className="bold">Fin:</span> {date[1].toDateString()}
-                </p>
-            )}
         </section>
     );
 };

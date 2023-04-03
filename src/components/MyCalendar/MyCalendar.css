@@ -6,7 +6,7 @@
 
 /* React Calendar */
 .react-calendar {
-    width: 400px;
+    width: 25rem;
     max-width: 100%;
     background-color: #fff;
     color: #222;
@@ -17,13 +17,16 @@
     line-height: 1.125em;
 }
 .react-calendar__navigation button {
-    color: #6f48eb;
-    min-width: 44px;
+    /* color: #fff;
+    background: #fbb03b; */
+    color: #fbb03b;
     background: none;
-    font-size: 16px;
+    min-width: 44px;
+    font-size: 1rem;
+    font-weight: bold;
     /* font-family: "Times New Roman", "Lato"; */
     font-family: inherit;
-    margin-top: 8px;
+    margin-top: 0.5rem;
 }
 .react-calendar__navigation button:enabled:hover,
 .react-calendar__navigation button:enabled:focus {
@@ -41,44 +44,44 @@ abbr[title] {
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
     background: #f8f8fa;
-    color: #6f48eb;
+    color: #fbb03b;
     border-radius: 6px;
 }
 .react-calendar__tile--now {
-    background: #6f48eb33;
+    background: #fbb03b33;
     border-radius: 6px;
     font-weight: bold;
-    color: #6f48eb;
+    color: #fbb03b;
 }
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-    background: #6f48eb33;
+    background: #fbb03b33;
     border-radius: 6px;
     font-weight: bold;
-    color: #6f48eb;
+    color: #fbb03b;
 }
 .react-calendar__tile--hasActive:enabled:hover,
 .react-calendar__tile--hasActive:enabled:focus {
     background: #f8f8fa;
 }
 .react-calendar__tile--active {
-    background: #6f48eb;
+    background: #fbb03b;
     border-radius: 6px;
     font-weight: bold;
     color: white;
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-    background: #6f48eb;
+    background: #fbb03b;
     color: white;
 }
 .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #f8f8fa;
 }
 .react-calendar__tile--range {
-    background: #6f48eb;
+    background: #fbb03b;
     /* background: #f8f8fa; */
-    /* color: #6f48eb; */
+    /* color: #fbb03b; */
     /* color: red; */
     border-radius: 0;
 }
@@ -87,7 +90,7 @@ abbr[title] {
     border-bottom-right-radius: 0;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-    background: #6f48eb;
+    background: #fbb03b;
     color: white;
 }
 
@@ -96,7 +99,7 @@ abbr[title] {
     border-bottom-left-radius: 0;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
-    background: #6f48eb;
+    background: #fbb03b;
     color: white;
 }
 
@@ -113,4 +116,27 @@ abbr[title] {
     border-bottom-right-radius: 0;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
+}
+
+/* Event time */
+.event-time {
+    display: flex;
+    font-family: inherit;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+}
+.event-time span {
+    color: #404040;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.event-time__input {
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    padding: 0.2rem 0.5rem;
+    font-weight: bold;
+    color: #cd8004;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
