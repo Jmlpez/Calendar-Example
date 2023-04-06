@@ -23,12 +23,28 @@ const calendarReducer = (calendarState, action) => {
             };
         }
         case "set-start-time": {
+            const { payload } = action;
+            if (payload > calendarState.endTime) {
+                return {
+                    ...calendarState,
+                    endTime: payload,
+                    startTime: calendarState.endTime,
+                };
+            }
             return {
                 ...calendarState,
                 startTime: action.payload,
             };
         }
         case "set-end-time": {
+            const { payload } = action;
+            if (payload < calendarState.startTime) {
+                return {
+                    ...calendarState,
+                    endTime: calendarState.startTime,
+                    startTime: payload,
+                };
+            }
             return {
                 ...calendarState,
                 endTime: action.payload,

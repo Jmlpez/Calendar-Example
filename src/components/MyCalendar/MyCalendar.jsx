@@ -31,7 +31,7 @@ export const MyCalendar = () => {
     return (
         <section className="my-calendar">
             <div className="calendar-container">
-                <Calendar onChange={handleCalendarDate} value={calendarState.date} selectRange={true} />
+                <Calendar onChange={handleCalendarDate} defaultValue={calendarState.date} selectRange={true} />
             </div>
             <section className="event-time">
                 <div className="event-time--start">
